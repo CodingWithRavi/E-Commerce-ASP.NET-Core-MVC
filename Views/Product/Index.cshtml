@@ -1,0 +1,114 @@
+﻿@model IEnumerable<E_Commerce.Models.Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<div class="container mt-4">
+
+    <!-- Top Bar -->
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h2 class="fw-bold">
+            Products
+        </h2>
+
+        <a asp-action="Create"
+               class="btn btn-dark">
+
+            + Add Product
+
+        </a>
+
+    </div>
+
+    <!-- Products -->
+
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-12 col-sm-6 col-lg-4 mb-4">
+
+                <div class="card shadow-sm border-0 h-100 rounded-4">
+
+                    <!-- Image -->
+
+                    <div class="text-center p-3">
+
+                        <img src="@item.ImagePath"
+                             class="img-fluid"
+                             style="height:220px; object-fit:contain;" />
+
+                    </div>
+
+                    <!-- Body -->
+
+                    <div class="card-body">
+
+                        <!-- Product Name -->
+
+                        <h5 class="fw-bold">
+
+                            @item.ProductName
+
+                        </h5>
+
+                        <!-- Price -->
+
+                        <h4 class="text-success fw-bold">
+
+                            ₹ @String.Format("{0:N0}", item.Price)
+
+                        </h4>
+
+                        <!-- Category -->
+
+                        <p class="text-muted mb-3">
+
+                            Category :
+                            @item.Category?.Name
+
+                        </p>
+
+                        <!-- Buttons -->
+
+                        <div class="d-grid gap-2">
+
+                            <a asp-action="Edit"
+                                   asp-route-id="@item.ProductId"
+                                   class="btn btn-primary">
+
+                                Edit
+
+                            </a>
+
+                            <a asp-action="Details"
+                                   asp-route-id="@item.ProductId"
+                                   class="btn btn-dark">
+
+                                Details
+
+                            </a>
+
+                            <a asp-action="Delete"
+                                   asp-route-id="@item.ProductId"
+                                   class="btn btn-danger">
+
+                                Delete
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</div>

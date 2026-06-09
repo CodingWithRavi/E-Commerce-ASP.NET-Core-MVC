@@ -1,0 +1,138 @@
+﻿@model RegisterViewModel
+
+<div class="d-flex justify-content-center align-items-center"
+     style="min-height:75vh;">
+
+    <div class="col-md-5">
+
+        <div class="card shadow border-0 rounded-4 p-3">
+
+            <h3 class="text-center fw-bold mb-3">
+                Create Account
+            </h3>
+
+            <form asp-action="Register">
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-2">
+
+                        <label class="form-label">
+                            First Name
+                        </label>
+
+                        <input asp-for="FirstName"
+                               class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+
+                        <label class="form-label">
+                            Last Name
+                        </label>
+
+                        <input asp-for="LastName"
+                               class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="mb-2">
+
+                    <label class="form-label">
+                        Email
+                    </label>
+
+                    <input asp-for="Email"
+                           class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+
+                </div>
+
+                <div class="mb-2">
+
+                    <label class="form-label">
+                        Phone Number
+                    </label>
+
+                    <input asp-for="PhoneNumber"
+                           class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+
+                <div class="mb-2">
+
+                    <label class="form-label">
+                        Address
+                    </label>
+
+                    <textarea asp-for="Address"
+                              rows="1"
+                              class="form-control"></textarea>
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-2">
+
+                        <label class="form-label">
+                            Password
+                        </label>
+
+                        <input asp-for="Password"
+                               type="password"
+                               class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+
+                        <label class="form-label">
+                            Confirm Password
+                        </label>
+
+                        <input asp-for="ConfirmPassword"
+                               type="password"
+                               class="form-control" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <button type="submit"
+                        class="btn btn-primary w-100">
+                    Register
+                </button>
+
+            </form>
+
+            <hr class="my-2" />
+
+            <div class="text-center">
+
+                <p class="mb-2">
+                    Already have an account?
+                </p>
+
+                <a asp-controller="Account"
+                       asp-action="Login"
+                       class="btn btn-outline-dark w-100 btn-sm">
+                    Login
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+@* Clint Side Validation Without Reload Page*@
+@section Scripts {
+
+    <partial name="_ValidationScriptsPartial" />
+
+}

@@ -1,0 +1,92 @@
+﻿@model List<Order>
+
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h2 class="fw-bold">
+            My Orders
+        </h2>
+
+        <div>
+
+            <a asp-controller="Shop"
+                   asp-action="Index"
+                   class="btn btn-dark me-2">
+                Shop
+            </a>
+
+            <a asp-controller="Cart"
+                   asp-action="Index"
+                   class="btn btn-primary">
+                Cart
+            </a>
+
+        </div>
+
+    </div>
+
+    @if (Model.Count == 0)
+    {
+        <div class="alert alert-warning">
+            No Orders Found
+        </div>
+    }
+    else
+    {
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 mb-4">
+
+                    <div class="card shadow border-0 h-100">
+
+                        <div class="row g-0">
+
+                            <div class="col-4">
+
+                                <img src="@item.Product!.ImagePath"
+                                     class="img-fluid rounded-start p-2"
+                                     style="height:220px; object-fit:contain;" />
+
+                            </div>
+
+                            <div class="col-8">
+
+                                <div class="card-body">
+
+                                    <h5 class="fw-bold">
+                                        @item.Product?.ProductName
+                                    </h5>
+
+                                    <h4 class="text-success mt-3">
+                                        ₹ @item.Price
+                                    </h4>
+
+                                    <p class="text-muted mt-2">
+
+                                        Order Date:
+                                        <br />
+
+                                        @item.OrderDate
+
+                                    </p>
+
+                                    
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            }
+
+        </div>
+    }
+
+</div>

@@ -1,0 +1,65 @@
+﻿@model E_Commerce.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow p-4">
+
+        <div class="row">
+
+            <!-- Product Image -->
+            <div class="col-md-4 text-center">
+
+                <img src="@Model.ImagePath"
+                     alt="@Model.ProductName"
+                     class="img-fluid rounded"
+                     style="max-height:350px;" />
+            </div>
+
+            <!-- Product Details -->
+            <div class="col-md-8">
+
+                <h2 class="fw-bold">
+                    @Model.ProductName
+                </h2>
+
+                <h3 class="text-success mt-3">
+                    ₹ @String.Format("{0:N0}", Model.Price)
+                </h3>
+
+                <p class="mt-4 text-muted">
+                    @Model.Description
+                </p>
+
+                <h5>
+                    Category :
+                    <span class="badge bg-dark">
+                        @Model.Category!.Name
+                    </span>
+                </h5>
+
+                <div class="mt-4">
+
+                    <a asp-action="Edit"
+                           asp-route-id="@Model.ProductId"
+                           class="btn btn-warning">
+                        Edit
+                    </a>
+
+                    <a asp-action="Index"
+                           class="btn btn-dark">
+                        Back To List
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

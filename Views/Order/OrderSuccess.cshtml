@@ -1,0 +1,35 @@
+﻿<div class="container mt-5">
+
+    <div class="card shadow-lg border-0 p-5 text-center">
+
+        <h1 class="text-success mb-4">
+            Order Placed Successfully
+        </h1>
+
+        <p class="fs-5">
+            Thank you for shopping with us.
+        </p>
+
+        <p>
+            Your order has been saved successfully.
+        </p>
+
+        <div class="mt-4">
+
+            <a asp-controller="Shop"
+                   asp-action="Index"
+                   class="btn btn-primary me-2">
+                Continue Shopping
+            </a>
+
+            <a asp-controller="Order"
+                   asp-action="MyOrders"
+                   class="btn btn-dark">
+                My Orders
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,78 @@
+﻿@model E_Commerce.Models.Category
+
+@{
+    ViewData["Title"] = "Category Details";
+}
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-6 col-md-8 col-12">
+
+            <div class="card shadow border-0 rounded-4 overflow-hidden">
+
+                <!-- Header -->
+
+                <div class="bg-dark text-white p-4">
+
+                    <h1 class="fw-bold mb-0">
+                        Category Details
+                    </h1>
+
+                </div>
+
+                <!-- Body -->
+
+                <div class="card-body p-4">
+
+                    <!-- Category Id -->
+
+                    <h6 class="text-muted">
+                        Category Id
+                    </h6>
+
+                    <h4 class="fw-bold mb-4">
+                        @Model.CategoryId
+                    </h4>
+
+                    <!-- Category Name -->
+
+                    <h6 class="text-muted">
+                        Category Name
+                    </h6>
+
+                    <h3 class="fw-bold">
+                        @Model.Name
+                    </h3>
+
+                    <!-- Buttons -->
+
+                    <div class="d-flex gap-3 mt-4">
+
+                        <a asp-action="Edit"
+                               asp-route-id="@Model.CategoryId"
+                               class="btn btn-primary rounded-pill px-4">
+
+                            Edit
+
+                        </a>
+
+                        <a asp-action="Index"
+                               class="btn btn-outline-secondary rounded-pill px-4">
+
+                            Back
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
